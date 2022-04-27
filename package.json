@@ -1,0 +1,29 @@
+{
+  "name": "genshin_player_query",
+  "version": "1.0.0",
+  "description": "genshin impact player info query",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node index.js",
+    "dev": "LOG_LEVEL=debug node index.js | ./node_modules/.bin/pino-pretty"
+  },
+  "author": {
+    "name": "heartalborada",
+    "email": "heartalborada@outlook.com",
+    "url": "https://loliurl.club"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-generator": "^4.16.1",
+    "init": "^0.1.2",
+    "md5-node": "^1.0.1",
+    "node-cache": "^5.1.2",
+    "pino": "^7.10.0",
+    "request": "^2.88.2",
+    "string-random": "^0.1.3"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.27",
+    "pino-pretty": "^7.6.1"
+  }
+}
