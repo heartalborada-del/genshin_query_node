@@ -13,6 +13,7 @@
     "url": "https://loliurl.club"
   },
   "dependencies": {
+    "body-parser": "^1.20.0",
     "express": "^4.17.3",
     "express-generator": "^4.16.1",
     "init": "^0.1.2",
