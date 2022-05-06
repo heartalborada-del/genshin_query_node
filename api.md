@@ -1,4 +1,4 @@
-### POST https://webapi.account.mihoyo.com/Api/login_by_password
+### POST https://api-takumi.mihoyo.com/account/auth/api/webLoginByPassword
 
 传入参数
 | 参数 | 描述 | 获取方法 |
