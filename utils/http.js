@@ -6,7 +6,7 @@ function http(options) {
       if (error) {
         reject(error)
       }
-      resolve(body)
+      resolve(body,response)
     })
   })
   .catch(error => console.error(error))

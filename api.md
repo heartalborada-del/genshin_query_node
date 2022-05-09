@@ -4,7 +4,7 @@
 | 参数 | 描述 | 获取方法 |
 | ------ | ------ | ------ |
 | account | 手机号/邮箱 | 用户输入 |
-| password | 加密后密码 | 未找到获取方法 |
+| password | 加密后密码 | rsa加密密码|
 | mmt_key | mmt_key | 在下文有获取方法 |
 | is_crypto | 是否加密 | 为true |
 | geetest_challenge| challenge | 在下文有获取方法 |

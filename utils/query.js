@@ -406,6 +406,6 @@ class bulid {
 }
 
 module.exports = {
-    CN
+    CN,
     OS
 }

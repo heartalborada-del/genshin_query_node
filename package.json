@@ -19,6 +19,7 @@
     "init": "^0.1.2",
     "md5-node": "^1.0.1",
     "node-cache": "^5.1.2",
+    "node-rsa": "^1.1.1",
     "pino": "^7.10.0",
     "request": "^2.88.2",
     "string-random": "^0.1.3"

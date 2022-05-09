@@ -2,6 +2,7 @@ const express = require("express")
 const pino = require("pino")
 const query = require("./utils/query")
 const DS = require("./utils/DS")
+const login = require("./utils/login")
 var bodyParser = require('body-parser');
 const logger = pino({level: process.env.LOG_LEVEL || 'info'})
 
@@ -32,13 +33,14 @@ app.all('*', (req, res, next) => {
 })
 
 app.get('/',function (req, res){
-    res.send(DS.getCNDS({
-        role_id: 100282430,
-        schedule_type: 1,
-        server: 'cn_gf01'
-    }))
-    //res.send(req.ip)
-    console.log("requset")
+    login.genMmt().then(data =>{
+        res.json(data)
+    }).catch(error => {
+        res.json({
+            msg: error,
+            code: -1
+        })
+    })
 })
 if(openCN){
     app.all('/api/cn/roleInfo',function (req,res){
