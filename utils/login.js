@@ -35,8 +35,8 @@ const login = ({account,password,mmt_key,gc,gv}) => {
                 reject(response.message)
                 return
             }
-            cookie = j.getCookieString('https://api-takumi.mihoyo.com/account/auth/api/webLoginByPassword')
-            console.log(cookie)
+            cookie = j.getCookies('https://api-takumi.mihoyo.com/account/auth/api/webLoginByPassword')
+            //后期会改为直接设置cookie
             resolve(cookie)
         }).catch(error => {
             logger.error('登录接口报错 %o', error)
