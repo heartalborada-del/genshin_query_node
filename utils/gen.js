@@ -14,18 +14,18 @@ const getQueryParam = (data) => {
     return arr.join("&")
 }
 
-const genMiyosheSign = (params) => {
+const genMiyousheSign = (params) => {
     p = getQueryParam(params)
     return crypto.createHmac('sha256', MiyousheKey).update(p).digest('hex')
 }
 
-const getMiHoYoRSAPassword = (password) => {
+const genMiHoYoRSApw = (password) => {
     const nodeRSA = new NodeRSA(MiyoushepubKey)
     nodeRSA.setOptions({ encryptionScheme: 'pkcs1' })
     return nodeRSA.encrypt(password, 'base64')
 }
 
 module.exports = {
-    genMiyosheSign,
-    getMiHoYoRSAPassword
+    genMiyousheSign,
+    genMiHoYoRSApw
 }
