@@ -1,9 +1,9 @@
 const express = require("express")
 const pino = require("pino")
 const query = require("./utils/query")
-const DS = require("./utils/DS")
 const login = require("./utils/login")
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 
 const logger = pino({ level: process.env.LOG_LEVEL || 'info' })
 
@@ -11,6 +11,7 @@ const app = express()
 const openCN = true
 const openOS = false
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(cookieParser());
 app.set("trust proxy", true)
 app.use(express.static('./static'))
 

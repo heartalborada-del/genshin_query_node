@@ -18,7 +18,7 @@ const login = ({account,password,mmt_key,gc,gv}) => {
             },
             body: JSON.stringify({ 
                 account:account,
-                password: gen.genMiHoYoRSApw(password),
+                password: password,
                 mmt_key,
                 is_bh2: false,
                 is_crypto: true,
@@ -37,7 +37,10 @@ const login = ({account,password,mmt_key,gc,gv}) => {
             }
             cookie = j.getCookies('https://api-takumi.mihoyo.com/account/auth/api/webLoginByPassword')
             //后期会改为直接设置cookie
-            resolve(cookie)
+            resolve({
+                'cookie':cookie,
+                'data': response
+            })
         }).catch(error => {
             logger.error('登录接口报错 %o', error)
             reject(error)
