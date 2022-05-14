@@ -56,6 +56,13 @@ if (openCN) {
     })
 
     app.all('/api/cn/getuserinfo', function (req, res) {
+        var cookie = ''
+        for (var key in req.cookies) {
+            cookie = cookie + key + '=' + req.cookies[key] + ";"
+            res.cookie(key, req.cookies[key], {
+                maxAge: -1
+            })
+        }
         var uid = req.query.uid
         var region = req.query.region
         if (req.method == 'POST') {
@@ -73,6 +80,13 @@ if (openCN) {
     })
 
     app.all('/api/cn/getspiralabyss', function (req, res) {
+        var cookie = ''
+        for (var key in req.cookies) {
+            cookie = cookie + key + '=' + req.cookies[key] + ";"
+            res.cookie(key, req.cookies[key], {
+                maxAge: -1
+            })
+        }
         var uid = req.query.uid
         var region = req.query.region
         var schedule_type = req.query.schedule_type

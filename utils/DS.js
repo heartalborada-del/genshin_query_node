@@ -22,7 +22,6 @@ const getCNDS = (query, body = "") => {
     const t = Date.now() / 1000 | 0
     const r = randomInt(100001, 200000)
     const q = getQueryParam(query)
-    console.log(q)
     const c = md5(`salt=${s}&t=${t}&r=${r}&b=${body}&q=${q}`)
     return `${t},${r},${c}`
 }

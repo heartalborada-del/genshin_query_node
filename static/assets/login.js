@@ -30,15 +30,16 @@ function login(account, pw, mmt_key, challenge, validate) {
             validate
         },
         success: function (data) {
-            if (data.code != 0){
-                mdui.alert('error', '登录错误,错误原因'+data.message);
+            if (data.code != 0) {
+                mdui.alert('', '登录错误,错误原因' + data.msg);
                 return
             }
-            mdui.alert('info', '登陆成功');
+            mdui.alert('', '登陆成功');
         }
     })
 }
-$("#doLogin").click(function () {
+
+function dologin() {
     var account = $('#account').val()
     var pw = $('#password').val()
     if (check(account, pw)) {
@@ -69,4 +70,4 @@ $("#doLogin").click(function () {
             });
         })
     }
-})
+}
