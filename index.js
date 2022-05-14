@@ -2,18 +2,21 @@ const express = require("express")
 const pino = require("pino")
 const query = require("./utils/query")
 const login = require("./utils/login")
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const path = require('path')
 
 const logger = pino({ level: process.env.LOG_LEVEL || 'info' })
 
 const app = express()
+
 const openCN = true
 const openOS = false
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser());
 app.set("trust proxy", true)
-app.use(express.static('./static'))
+app.use(express.static(path.join(__dirname, 'static')))
 
 app.all('*', (req, res, next) => {
     const { origin, Origin, referer, Referer } = req.headers;
@@ -30,11 +33,11 @@ app.all('*', (req, res, next) => {
 })
 
 if (openCN) {
-    app.all('/api/cn/roleInfo', function(req, res) {
+    app.all('/api/cn/roleInfo', function (req, res) {
         var cookie = ''
-        for(var key in req.cookies){
-            cookie = cookie + key+'='+req.cookies[key]+";"
-            res.cookie(key, req.cookies[key],{ 
+        for (var key in req.cookies) {
+            cookie = cookie + key + '=' + req.cookies[key] + ";"
+            res.cookie(key, req.cookies[key], {
                 maxAge: -1
             })
         }
@@ -52,14 +55,14 @@ if (openCN) {
         })
     })
 
-    app.all('/api/cn/getuserinfo', function(req, res) {
+    app.all('/api/cn/getuserinfo', function (req, res) {
         var uid = req.query.uid
         var region = req.query.region
         if (req.method == 'POST') {
             var uid = req.body.uid
             var region = req.body.region
         }
-        new query.CN().getUserInfo({ uid, region, cookie}).then(data => {
+        new query.CN().getUserInfo({ uid, region, cookie }).then(data => {
             res.json(data)
         }).catch(error => {
             res.json({
@@ -69,7 +72,7 @@ if (openCN) {
         })
     })
 
-    app.all('/api/cn/getspiralabyss', function(req, res) {
+    app.all('/api/cn/getspiralabyss', function (req, res) {
         var uid = req.query.uid
         var region = req.query.region
         var schedule_type = req.query.schedule_type
@@ -88,7 +91,7 @@ if (openCN) {
         })
     })
 
-    app.all('/api/cn/getmmt', function(req,res) {
+    app.all('/api/cn/getmmt', function (req, res) {
         login.getMmt().then(data => {
             res.json(data)
         }).catch(error => {
@@ -98,8 +101,8 @@ if (openCN) {
             })
         })
     })
-    
-    app.post('/api/cn/login',function(req,res) {
+
+    app.post('/api/cn/login', function (req, res) {
         var account = req.body.account
         var password = req.body.password
         var mmt_key = req.body.mmt_key
@@ -109,8 +112,8 @@ if (openCN) {
             account,
             password,
             mmt_key,
-            gc:challenge,
-            gv:validate
+            gc: challenge,
+            gv: validate
         }).then(data => {
             for (var key in data.cookie) {
                 res.cookie(
@@ -122,11 +125,11 @@ if (openCN) {
                         hostOnly: data.cookie[key]['hostOnly'],
                         httpOnly: data.cookie[key]['httpOnly']
                     })
-              }
+            }
             res.json({
                 msg: data.data.message,
                 code: data.data.retcode,
-                data:data.data.data.account_info,
+                data: data.data.data.account_info,
             })
         }).catch(error => {
             res.json({
@@ -136,15 +139,15 @@ if (openCN) {
         })
     })
 
-    app.post('/api/cn/logout',function(req,res) {
+    app.post('/api/cn/logout', function (req, res) {
         var cookie = ''
-        for(var key in req.cookies){
-            cookie = cookie + key+'='+req.cookies[key]+";"
-            res.cookie(key, req.cookies[key],{ 
+        for (var key in req.cookies) {
+            cookie = cookie + key + '=' + req.cookies[key] + ";"
+            res.cookie(key, req.cookies[key], {
                 maxAge: -1
             })
         }
-        login.logout({cookie}).then(data => {
+        login.logout({ cookie }).then(data => {
             for (var key in data.cookie) {
                 res.cookie(
                     data.cookie[key].key,
@@ -155,7 +158,7 @@ if (openCN) {
                         hostOnly: data.cookie[key]['hostOnly'],
                         httpOnly: data.cookie[key]['httpOnly']
                     })
-              }
+            }
             res.json({
                 msg: data.data.message,
                 code: data.data.retcode,
@@ -169,7 +172,7 @@ if (openCN) {
     })
 }
 if (openOS) {
-    app.all('/api/os/roleInfo', function(req, res) {
+    app.all('/api/os/roleInfo', function (req, res) {
         var uid = req.query.uid
         if (req.method == 'POST') {
             var uid = req.body.uid
@@ -184,7 +187,7 @@ if (openOS) {
         })
     })
 
-    app.all('/api/os/getuserinfo', function(req, res) {
+    app.all('/api/os/getuserinfo', function (req, res) {
         var uid = req.query.uid
         var region = req.query.region
         if (req.method == 'POST') {
@@ -201,7 +204,7 @@ if (openOS) {
         })
     })
 
-    app.all('/api/os/getspiralabyss', function(req, res) {
+    app.all('/api/os/getspiralabyss', function (req, res) {
         var uid = req.query.uid
         var region = req.query.region
         var schedule_type = req.query.schedule_type

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>查询器</title>
     <!-- MDUI -->
-    <link rel="stylesheet" href=".\lib\mdui-1.0.2\css\mdui.min.css"/>
+    <link rel="stylesheet" href=".\lib\mdui-1.0.2\css\mdui.min.css" />
     <script src=".\lib\mdui-1.0.2\js\mdui.min.js"></script>
     <!-- jQuery-->
     <script src=".\lib\jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -13,6 +13,15 @@
     <script src=".\lib\geetest\gt.js"></script>
     <!-- jsencrypt -->
     <script src=".\lib\jsencrypt-3.2.1\jsencrypt.min.js"></script>
+    <!-- pjax -->
+    <script src=".\lib\pjax-2.0.1\jquery.pjax.js"></script>
+    <!-- nprogress -->
+    <link rel="stylesheet" href=".\lib\nprogress-0.2.0\nprogress.css" />
+    <script src=".\lib\nprogress-0.2.0\nprogress.js"></script>
+    <!-- public style -->
+    <link rel="stylesheet" href="./assets/style.css" />
+    <!-- fontawsome -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.1.1/css/all.css" rel="stylesheet">
 </head>
 
 <body class="mdui-theme-primary-indigo mdui-theme-accent-pink">
@@ -26,43 +35,33 @@
             <a href="javascript:;" class="mdui-btn mdui-btn-icon" id='logout'>
                 <i class="mdui-icon material-icons">&#xe15d;</i>
             </a>
-            <a href="javascript:;" class="mdui-btn mdui-btn-icon" id='login'>
+            <a href="javascript:;" class="mdui-btn mdui-btn-icon" id='login' style="margin-right: 50px;">
                 <i class="mdui-icon material-icons">&#xe148;</i>
-            </a>
-            <a href="javascript:;" class="mdui-btn mdui-btn-icon">
-                <i class="mdui-icon material-icons">more_vert</i>
             </a>
         </div>
         <div class="mdui-tab mdui-color-theme" mdui-tab>
-            <a href="#example3-tab1" class="mdui-ripple mdui-ripple-white">Login</a>
-            <a href="#example3-tab1" class="mdui-ripple mdui-ripple-white">Query</a>
-            <a href="#example3-tab1" class="mdui-ripple mdui-ripple-white">My</a>
-            <a href="#example3-tab1" class="mdui-ripple mdui-ripple-white">about</a>
-          </div>
-      </div>
-    <div style="top:0;bottom:0;left:0;right:0;margin:auto;margin-top:5%;width:50%;border-radius:3px"
-        class="mdui-shadow-12 mdui-container">
-        <div>
-            <h3 style="margin-top: 5px">Login</h3>
-            <div class="mdui-textfield mdui-textfield-floating-label" id="'acD">
-                <i class="mdui-icon material-icons">phone</i>
-                <label class="mdui-textfield-label">Phone/Email</label>
-                <input class="mdui-textfield-input" id="account" type="text" pattern="^(^1(3|4|5|6|7|8|9)\d{9})|(^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$)" required></input>
-                <div class="mdui-textfield-error">用户名不能为空，且为邮箱或者手机号</div>
-            </div>
-            <div class="mdui-textfield mdui-textfield-floating-label">
-                <i class="mdui-icon material-icons">lock</i>
-                <label class="mdui-textfield-label">Password</label>
-                <input class="mdui-textfield-input" type="password" id="password" pattern="^.*(?=.{8,15})(?=.*[a-zA-Z])(?=.*[0-9]).*$" required></input>
-                <div class="mdui-textfield-error">密码至少 8 位，且不能全是字母或数字</div>
-            </div>
-            <button class="mdui-btn mdui-color-theme-accent mdui-ripple" style="float: right;margin-bottom:5px;" id="doLogin">login</button>
+            <a id="login_tab" class="mdui-ripple mdui-ripple-white">Login</a>
+            <a id="query_tab" class="mdui-ripple mdui-ripple-white">Query</a>
+            <a id="my_tab" class="mdui-ripple mdui-ripple-white">My</a>
+            <a id="about_tab" class="mdui-ripple mdui-ripple-white">about</a>
         </div>
+    </div>
+    <div id="show">
+
+    </div>
+    <div id="dialog">
+
     </div>
 </body>
 
 <footer>
     <!-- main -->
     <script src=".\assets\main.js"></script>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2022-2022 Heartalborada, All rights reserved.
+        </div>
+    </div>
 </footer>
+
 </html>

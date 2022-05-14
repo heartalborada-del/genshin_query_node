@@ -42,7 +42,6 @@ class CN {
                                 region,
                                 region_name
                             }
-                            roleIdCache.set(key, info)
                             resolve(info)
                         } else {
                             logger.warn('无角色数据, uid %s', uid)
@@ -84,7 +83,6 @@ class CN {
                         message: response.messages,
                         ...new bulid().bulidUserInfo({json: response})
                     }
-                    userInfoCache.set(key,data)
                     resolve(data)
                 }).catch((error) => {
                     logger.error('获取角色接口请求报错 %o', error)
@@ -118,7 +116,6 @@ class CN {
                         message: response.messages,
                         ...new bulid().bulidSpiralAbyss({'json': response})
                     }
-                    userInfoCache.set(key, data)
                     resolve(data)
                 }).catch((error) => {
                     logger.error('获取深渊数据接口请求报错 %o', error)

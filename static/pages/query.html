@@ -1,0 +1,69 @@
+<div class="mdui-shadow-12 mdui-container modify-card">
+    <div>
+        <h3 style="margin-top: 5px">米游社ID查询玩家服务器&UID</h3>
+        <div class="mdui-textfield mdui-textfield-floating-label" id="'acD">
+            <i class="mdui-icon material-icons">
+                <i class="fa fa-id-card" aria-hidden="true"></i>
+            </i>
+            <label class="mdui-textfield-label">米游社ID</label>
+            <input class="mdui-textfield-input" id="id" type="text"
+                pattern="^[0-9]*$" required></input>
+            <div class="mdui-textfield-error">米游社ID不能为空，且为纯数字</div>
+        </div>
+        <button class="mdui-btn mdui-color-theme-accent mdui-ripple" style="float: right;margin-bottom:5px;"
+            id="doQuery">查询</button>
+    </div>
+</div>
+
+<div class="mdui-shadow-12 mdui-container modify-card">
+    <div>
+        <h3 style="margin-top: 5px">玩家服务器&UID查询玩家基础信息</h3>
+        <div class="mdui-textfield mdui-textfield-floating-label" id="'acD">
+            <i class="mdui-icon material-icons">
+                <i class="fa fa-server" aria-hidden="true"></i>
+            </i>
+            <label class="mdui-textfield-label">UID</label>
+            <input class="mdui-textfield-input" id="id" type="text"
+                pattern="^[0-9]*$" required></input>
+            <div class="mdui-textfield-error">米游社ID不能为空，且为纯数字</div>
+        </div>
+        <div style="position: relative; padding-top: 16px; padding-bottom: 8px; overflow: hidden;">
+            <i class="mdui-icon material-icons">
+                <i class="fa fa-server" aria-hidden="true"></i>
+            </i>
+            <select class="mdui-select" mdui-select="{position: 'bottom'}" style="margin-left: 56px;display: inline-block;">
+                <option value="cn_gf01">天空岛(官服)</option>
+                <option value="cn_qd01">世界树(B服)</option>
+            </select>
+        </div>
+        <button class="mdui-btn mdui-color-theme-accent mdui-ripple" style="float: right;margin-bottom:5px;"
+        id="doQuery">查询</button>
+    </div>
+</div>
+
+<div class="mdui-shadow-12 mdui-container modify-card">
+    <div>
+        <h3 style="margin-top: 5px">玩家服务器&UID查询玩家深渊信息</h3>
+        <div class="mdui-textfield mdui-textfield-floating-label" id="'acD">
+            <i class="mdui-icon material-icons">
+                <i class="fa fa-server" aria-hidden="true"></i>
+            </i>
+            <label class="mdui-textfield-label">UID</label>
+            <input class="mdui-textfield-input" id="id" type="text"
+                pattern="^[0-9]*$" required></input>
+            <div class="mdui-textfield-error">米游社ID不能为空，且为纯数字</div>
+        </div>
+        <div style="position: relative; padding-top: 16px; padding-bottom: 8px; overflow: hidden;">
+            <i class="mdui-icon material-icons">
+                <i class="fa fa-server" aria-hidden="true"></i>
+            </i>
+            <select class="mdui-select" mdui-select="{position: 'bottom'}" style="margin-left: 56px;display: inline-block;">
+                <option value="cn_gf01">天空岛(官服)</option>
+                <option value="cn_qd01">世界树(B服)</option>
+            </select>
+        </div>
+        <button class="mdui-btn mdui-color-theme-accent mdui-ripple" style="float: right;margin-bottom:5px;"
+        id="doQuery">查询</button>
+    </div>
+</div>
+<script src=".\assets\query.js"></script>
