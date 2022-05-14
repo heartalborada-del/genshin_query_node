@@ -48,6 +48,39 @@ const login = ({account,password,mmt_key,gc,gv}) => {
     })
 }
 
+const logout = ({cookie}) => {
+    var j = request.jar()
+    return new Promise((resolve, reject) =>{
+        http({
+            method: "POST",
+            url: "https://api-takumi.mihoyo.com/account/auth/api/webLogout",
+            headers: {
+                'Content-Type': 'application/json',
+                'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+                'Referer': 'https://bbs.mihoyo.com/ys/',
+                'Cookie': cookie
+            },
+            jar: j
+        }).then((response) => {
+            response = JSON.parse(response)          
+            if(response.retcode !== 0){
+                logger.error('退出登录接口报错 %s', response.message)
+                reject(response.message)
+                return
+            }
+            cookie = j.getCookies('https://api-takumi.mihoyo.com/account/auth/api/webLogout')
+            //后期会改为直接设置cookie
+            resolve({
+                'cookie':cookie,
+                'data': response
+            })
+        }).catch(error => {
+            logger.error('退出登录接口报错 %o', error)
+            reject(error)
+        })
+    })
+}
+
 const getMmt = () => {
     return new Promise((resolve, reject) =>{
         http({
@@ -74,11 +107,8 @@ const getMmt = () => {
     })
 }
 
-const getRSApw = (pw) => {
-    return gen.genMiHoYoRSApw(pw)
-}
 module.exports = {
     login,
+    logout,
     getMmt,
-    getRSApw
 }

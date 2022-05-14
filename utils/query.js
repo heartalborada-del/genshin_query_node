@@ -1,12 +1,8 @@
 const http = require('./http')
 const DS = require("./DS")
 const pino = require("pino")
-const NodeCache = require("node-cache")
 const logger = pino({ level: process.env.LOG_LEVEL || 'info' })
 
-const roleIdCache = new NodeCache({ stdTTL: 60 * 60 * 12 })
-const userInfoCache = new NodeCache({ stdTTL: 60 * 60 })
-const spiralAbyssCache = new NodeCache({ stdTTL: 60 * 30 })
 class CN {
     HEADERS = {
         'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) miHoYoBBS/2.27.1',
@@ -14,18 +10,11 @@ class CN {
         'x-rpc-app_version': '2.27.1',
         'Referer': 'https://webstatic.mihoyo.com/',
         'DS': '',
-        'Cookie': process.env.CNCookie
+        'Cookie': ''
     }
     TAKUMI_URL = "https://api-takumi-record.mihoyo.com/"
-    getRoleInfo = ({ uid }) => {
-        const key = `__uid__${uid}`
+    getRoleInfo = ({ uid, cookie }) => {
         return new Promise((resolve, reject) => {
-            let cache = roleIdCache.get(key)
-            if (cache) {
-                const { game_role_id, nickname, region, region_name } = cache
-                logger.info('从缓存中获取对应玩家信息,uid %s, game_role_id %s, nickname %s, region %s, region_name %s', uid, game_role_id, nickname, region, region_name)
-                resolve(cache)
-            } else {
                 const query = { uid }
                 http({
                     method: "GET",
@@ -33,7 +22,8 @@ class CN {
                     qs: query,
                     headers: {
                         ...this.HEADERS,
-                        'DS': DS.getCNDS(query)
+                        'DS': DS.getCNDS(query),
+                        'Cookie': cookie
                     }
                 }).then(response => {
                     response = JSON.parse(response)
@@ -67,20 +57,10 @@ class CN {
                     reject(error)
                 })
             }
-        })
+        )
     }
-    getUserInfo = ({ uid, region }) => {
-        const key = `__uid-region__${uid}-${region}`
+    getUserInfo = ({ uid, region, cookie }) => {
         return new Promise((resolve, reject) => {
-            let cache = userInfoCache.get(key)
-            if (cache) {
-                if (cache.retcode === 10101) {
-                    reject(cache.message)
-                } else {
-                    resolve(cache)
-                }
-                return
-            } else {
                 const query = { role_id: uid, server: region }
                 http({
                     method: 'GET',
@@ -88,7 +68,8 @@ class CN {
                     qs: query,
                     headers: {
                         ...this.HEADERS,
-                        'DS': DS.getCNDS(query)
+                        'DS': DS.getCNDS(query),
+                        'Cookie': cookie
                     }
                 }).then(response => {
                     response = JSON.parse(response)
@@ -110,20 +91,10 @@ class CN {
                     reject(error)
                 })
             }
-        })
+        )
     }
-    getSpiralAbyss = ({ uid, schedule_type, region }) => {
-        const key = `__uid-st-r__${uid}-${schedule_type}-${region}`
+    getSpiralAbyss = ({ uid, schedule_type, region, cookie }) => {
         return new Promise((resolve, reject) => {
-            let cache = spiralAbyssCache.get(key)
-            if (cache) {
-                if (cache.retcode === 10101) {
-                    reject(cache.message)
-                } else {
-                    resolve(cache)
-                }
-                return
-            } else {
                 const query = {'role_id': uid, schedule_type,'server': region}
                 http({
                     method: 'GET',
@@ -131,7 +102,8 @@ class CN {
                     qs: query,
                     headers: {
                         ...this.HEADERS,
-                        'DS': DS.getCNDS(query)
+                        'DS': DS.getCNDS(query),
+                        'Cookie': cookie
                     }
                 }).then(response => {
                     response = JSON.parse(response)
@@ -153,7 +125,7 @@ class CN {
                     reject(error)
                 })
             }
-        })
+        )
     }
 }
 class OS {
@@ -167,14 +139,7 @@ class OS {
     }
     TAKUMI_URL = "https://bbs-api-os.hoyolab.com/"
     getRoleInfo = ({ uid }) => {
-        const key = `__uid__${uid}`
         return new Promise((resolve, reject) => {
-            let cache = roleIdCache.get(key)
-            if (cache) {
-                const { game_role_id, nickname, region, region_name } = cache
-                logger.info('从缓存中获取对应玩家信息,uid %s, game_role_id %s, nickname %s, region %s, region_name %s', uid, game_role_id, nickname, region, region_name)
-                resolve(cache)
-            } else {
                 const query = { uid }
                 http({
                     method: "GET",
@@ -216,20 +181,10 @@ class OS {
                     reject(error)
                 })
             }
-        })
+        )
     }
     getUserInfo = ({ uid, region }) => {
-        const key = `__uid-region__${uid}-${region}`
         return new Promise((resolve, reject) => {
-            let cache = userInfoCache.get(key)
-            if (cache) {
-                if (cache.retcode === 10101) {
-                    reject(cache.message)
-                } else {
-                    resolve(cache)
-                }
-                return
-            } else {
                 const query = { role_id: uid, server: region }
                 http({
                     method: 'GET',
@@ -259,7 +214,7 @@ class OS {
                     reject(error)
                 })
             }
-        })
+        )
     }
     getSpiralAbyss = ({ uid, schedule_type, region }) => {
         const key = `__uid-st-r__${uid}-${schedule_type}-${region}`
