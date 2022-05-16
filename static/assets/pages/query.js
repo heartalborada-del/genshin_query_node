@@ -1,3 +1,4 @@
+var co01 = new mdui.Collapse('#co01');
 function check_mys(mys) {
     var pattern1 = /^[0-9]*$/g
     if (!pattern1.test(mys)) {
@@ -5,17 +6,23 @@ function check_mys(mys) {
     }
     return true
 }
+
 function swco(coid,bt) {
     co01.toggle(coid)
-    console.log(bt.nextSbiling())
+    if($(bt).hasClass('item-open')){
+        $(bt).removeClass('item-open')
+    } else {
+        $(bt).addClass('item-open')
+    }
 }
-function q_gi() {
-    var mys = $('#mys').val()
+
+function q_gi(bt) {
+    var mys = $(bt).prevAll('div').children('input').val()
     if (check_mys(mys)) {
         $.get("./api/cn/roleInfo?uid=" + mys, function (data, status) {
             if ("code" in data) {
                 if (data.code != 0) {
-                    mdui.alert('', '登录错误,错误原因' + data.msg);
+                    mdui.alert('', '查询错误,错误原因-' + data.msg);
                     return
                 }
             }
@@ -23,24 +30,20 @@ function q_gi() {
             for (var key in data) {
                 ht = ht + "<tr><td>" + key + "</td><td>" + data[key] + "</td></tr>"
             }
-            $('#gi_t').html(ht)
-            mdui.updateTables('#gi_t')
+            $(bt).nextAll('.mdui-table-fluid').children('.mdui-table').html(ht)
+            mdui.updateTables($(bt).nextAll('.mdui-table-fluid').children('.mdui-table'))
         })
     }
 }
 
-function q_ri() {
+function q_ri(bt) {
     var uid = $('#uid01').val()
     var sr = $('#sc01').val()
     if (check_mys(uid)) {
         $.get("./api/cn/getuserinfo?uid=" + uid + "&region=" + sr, function (data, status) {
             if ("code" in data) {
                 if (data.code != 0) {
-                    mdui.alert('', '登录错误,错误原因' + data.msg,{
-                        history: false,
-                        destroyOnClosed: true
-                    });
-                    return
+                    mdui.alert('', '查询错误,错误原因-' + data.msg);
                 }
             }
             console.log(data)

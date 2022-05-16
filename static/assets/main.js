@@ -69,9 +69,8 @@ $.pjax({
     push: false,
     replace: false
 })
-new mdui.Tab('#tab').show(getCookie('page') + '_tab')
 
-var co01 = new mdui.Collapse('#collapse');
+new mdui.Tab('#tab').show(getCookie('page') + '_tab')
 
 $(document).on('pjax:start', function () { NProgress.start(); });
 $(document).on('pjax:end', function () { NProgress.done(); });

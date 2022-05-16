@@ -1,0 +1,30 @@
+.item-header .item-arrow, .item-header.item-arrow {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    -webkit-transition: -webkit-transform .3s cubic-bezier(.4,0,.2,1);
+    transition: -webkit-transform .3s cubic-bezier(.4,0,.2,1);
+    transition: transform .3s cubic-bezier(.4,0,.2,1);
+    transition: transform .3s cubic-bezier(.4,0,.2,1),-webkit-transform .3s cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+}
+
+.item-open.item-header .item-arrow, .item-open.item-header.item-arrow {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+div.modify-info-card {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 95%;
+    border-radius: 3px
+}
+
+.item-header {
+    margin-bottom: 5px;
+}

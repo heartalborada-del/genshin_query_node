@@ -31,7 +31,7 @@ function login(account, pw, mmt_key, challenge, validate) {
         },
         success: function (data) {
             if (data.code != 0) {
-                mdui.alert('', '登录错误,错误原因' + data.msg);
+                mdui.alert('', '登录错误,错误原因-' + data.msg);
                 return
             }
             mdui.alert('', '登陆成功');
