@@ -37,8 +37,8 @@ function q_gi(bt) {
 }
 
 function q_ri(bt) {
-    var uid = $('#uid01').val()
-    var sr = $('#sc01').val()
+    var uid = $(bt).prevAll('div').find('input').val()
+    var sr = $(bt).prevAll('div').find('select').val()
     if (check_mys(uid)) {
         $.get("./api/cn/getuserinfo?uid=" + uid + "&region=" + sr, function (data, status) {
             if ("code" in data) {
@@ -46,7 +46,12 @@ function q_ri(bt) {
                     mdui.alert('', '查询错误,错误原因-' + data.msg);
                 }
             }
-            console.log(data)
+            showPlayer($(bt).parent().find('#su').find('.card'),data)
         })
     }
+}
+
+function showPlayer(div,data){
+    console.log(div)
+    console.log(data)
 }

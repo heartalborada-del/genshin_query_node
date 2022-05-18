@@ -39,9 +39,10 @@ function login(account, pw, mmt_key, challenge, validate) {
     })
 }
 
-function dologin() {
-    var account = $('#account').val()
-    var pw = $('#password').val()
+function dologin(bt) {
+    var child = $(bt).prevAll('form').find('input')
+    var account = $(child[0]).val()
+    var pw = $(child[1]).val()
     if (check(account, pw)) {
         $.get("./api/cn/getmmt", function (data, status) {
             let [challenge, gt, mmt] = ''
