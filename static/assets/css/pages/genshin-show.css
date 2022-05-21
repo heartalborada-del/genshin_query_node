@@ -1,4 +1,4 @@
-div.modify-info-card.card {
+.modify-info-card.summary {
     border-color: rgb(211, 188, 141);
     padding: 20px 16px;
     background: #f8f8f8;
@@ -13,18 +13,7 @@ div.modify-info-card.card {
     margin-bottom: 5px;
 }
 
-div.modify-card {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    margin-top: 5%;
-    border-radius: 3px;
-    width: 65%;
-}
-
-div.modify-info-card.info {
+.modify-info-card.summary-card {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -39,22 +28,22 @@ div.modify-info-card.info {
     flex-basis: 20%;
 }
 
-div.modify-info-card.info>.value {
+.modify-info-card.summary-card>.value {
     font-size: 18px;
-    font-family: Microsoft YaHei,sans-serif;
+    font-family: Microsoft YaHei, sans-serif;
     font-weight: 700;
     color: #1e1f20;
     line-height: 18px;
 }
 
-div.modify-info-card.info>.desc {
+.modify-info-card.summary-card>.desc {
     margin-top: 5px;
     width: 100%;
     padding: 0 .5px;
     min-height: 30px;
     text-align: center;
     font-size: 12px;
-    font-family: Microsoft YaHei,sans-serif;
+    font-family: Microsoft YaHei, sans-serif;
     font-weight: 400;
     color: #7f858a;
     line-height: 15px;
@@ -64,7 +53,7 @@ div.modify-info-card.info>.desc {
     min-height: 36px;
 }
 
-div.title {
+.block>.title {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -75,7 +64,7 @@ div.title {
     padding-left: 12px;
     margin-bottom: 16px;
     position: relative;
-    font-family: Microsoft YaHei,sans-serif;
+    font-family: Microsoft YaHei, sans-serif;
     font-weight: 700;
     color: #1e1f20;
     line-height: 24px;
@@ -83,7 +72,7 @@ div.title {
     padding-left: 12px;
 }
 
-div.title>.vertical {
+.block>.title>.vertical {
     position: absolute;
     width: 4px;
     height: 16px;
@@ -95,3 +84,160 @@ div.title>.vertical {
     transform: translateY(-50%);
     background: rgb(211, 188, 141);
 }
+
+.block {
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.modify-info-card.world {
+    color: rgb(59, 66, 85);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.modify-info-card.world>.card {
+    color: #3b4255;
+    position: relative;
+    padding: 20px 16px;
+    margin-bottom: 12px !important;
+    display: flex;
+    background-color: rgb(224, 217, 203);
+    border-radius: 3px;
+    background-size: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.modify-info-card.world>.card>.border {
+    position: absolute;
+    inset: 2px;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.modify-info-card.world>.card>.bg {
+    position: absolute;
+    min-height: 175px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.modify-info-card.world>.card>.icon {
+    width: 80px;
+    height: 80px;
+    margin-right: 16px !important;
+    margin-top: 7px !important;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.modify-info-card.world>.card>.guide {
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.modify-info-card.world>.card>.guide>.name {
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    margin-bottom: 12px !important;
+    font-weight: 700;
+    line-height: 16px;
+    font-size: 16px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.modify-info-card.world>.card>.guide>.progress-block {
+    font-size: 14px;
+    margin-top: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.modify-info-card.world>.card>.guide>.progress-block>.name {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 7px !important;
+    font-size: 14px;
+    line-height: 16px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.modify-info-card.world>.card>.guide img {
+    width: 16px;
+    height: 16px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.modify-info-card.world>.card>.guide img.warp {
+    margin-right: 8px !important;
+    content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAA2UExURUdwTDxCVTtBUztCVTtCVTtCVTtCVTs7TzxBVTtCVTtCVTtCVTpAVjxCVTpDVjtDVjtCVDtCVS9uTioAAAARdFJOUwBREen2uHYKZtiuyyaaO4ZkNR92QAAAAKZJREFUKM9tUVkWxCAIc8Hi3nL/y45bVZzmC5JHgijEQLwDQLijOHABNcDF+UQTaectbbCLV7r0TiJKVwqtVkDlW6uqsmJM6WQvZSnNFKoT9hKr1xSAC8AmNqs1EXh4YFutdbetFOwPBCX4yAt2Lb94z46I5uUNik/F4/khXeF80nEozT/rEZ+Jcp/puQ9BHLcN3NSN+wIlu+Px44yB/tAtojt5VzJ+SREPC99ChxIAAAAASUVORK5CYII=');
+}
+
+.modify-info-card.world>.card>.guide img.pre {
+    content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACTUExURUdwTPX19VdXV/v7+wUFBQ0NDQoKCgAAAAwMDAoKCvLy8iIiIgsLCwoKCggICD8/P3BwcMXFxYSEhOfn59fX16SkpJaWluzs7NDQ0LS0tLa2tt/f32dnZzQ0NDMzM////zExMSYmJiwsLOfn52VlZTY2Nk1NTcTExNjY2KmpqT8/P39/f46Ojl1dXZqamm1tbXV1dYXITUEAAAAvdFJOUwD7hP0EXA0BGU/uayo7SHeSx5zm2bCm7tL9vt7u/P/////////////////////+eks6ZgAAAwpJREFUSMfFVtl2ozAMjTHG7GsCWToEm5CwZPv/rxsJQyCdacvDnDN6Sm1fpHutK3e1+j+hG6Zp6JwvO8257lqM+aa+GGBaTqg5vrHw/MrwnPiw1phrrPiygliwpXTvWCZfBDB8Z2NTmoTMW5CiTxCuSXMhUcDcJRlMK9iTy/lUZiny5ksYJ6STVUPWIXN/khavINhCAilvNdk7vsl/SuA7qV0/ZVEU11Lx/r4nXKYB41bmhTwjb+v7FNwESUl9kkWey6Irs/jbFMiYhUl5zRFQyLYhWw158y/4cgMYR8BYwHlIIU412TgWIP7QiuuGAS3tMWBcdlLi+bwSxZ0kMbM8aHXYn4MMz/I9z2LaJqO7ViWAosStpkkaAMTzfdd408YJgkDbrMmRXIcECKh29GhHqQabzlwvBKRRtLaPRwAIWQ0IUTX0eKTZNtrHbwAO6sQJ7L0DKgWAoOCOub4c9d+PgFdJeV9Sv5jC+TnpPoWtPtZU4sXhfFGAgwbifmoJK8z6vWN9G1WSsivV2jrwP7lPN60w6ZOX5b2VPQK6aVeW9AsA2AwykMv9+XicoVURkJ8fj66pCQC0z/4GDimh9f1cCAGcB0AhhahOTYn+fuPQ2yai9TMXUI36PiIwpGivJbTUvCaOIkETPcWoD37+9UtIaCm00ojg+mCbSsyOvX5WqC5a6eXv/to2NspZvY637QSWYrDSkILrYJsDuRZTQbLqnnJCiHY3WEmleLNNfwFgHfhbTkWdaht5T5JmvW2KQRd5u1DSnIUoesWKXP66k8M4pdQkAsZjyLa7wGWR3aN9rSHv/fAA4CQi5f12GuN6Uf1Ay103LH18fOx6afH2YJZuYXMKojoUIWRcyzIbHwAfAYblbA72LOaA+fohVoDe0Nos0q2tSkqieL4eOGr8QyPBTLCmYEG8BdJ2FDpstuz7nnomOQ4lcwrXsxwtomQP48WdrZvG+BBzBVOBM830mXaA9we/qPPXzurvjwvHjPCowDUZw7klDzVzFr6hkwHRYssBK1BB/0f/t/wGEfNrsc3p5ZIAAAAASUVORK5CYII=');
+}
+
+.modify-info-card.world>.card>.guide>.progress-block>.progress {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background: rgba(0,0,0,.3);
+    border-radius: 3px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.modify-info-card.world>.card>.guide>.progress-block>.progress>.val {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    background: #3b4255;
+    border-radius: 3px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.modify-info-card.world>.card>.guide>.offering {
+    margin-top: 3px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 12px !important;
+    font-size: 14px;
+    line-height: 16px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+/*
+These stylesheet all powered by Mihoyo
+*/
