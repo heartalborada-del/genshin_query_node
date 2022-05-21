@@ -77,6 +77,7 @@ class CN {
                         reject(response.message)
                         return
                     }
+                    console.log(response)
                     const data = {
                         uid: uid,
                         retcode: response.retcode,
@@ -265,7 +266,7 @@ class bulid {
             way_point_number, domain_number,
             luxurious_chest_number, precious_chest_number,
             exquisite_chest_number, common_chest_number, magic_chest_number,
-            active_days, achievement_number, avatar_number, spiral_abyss} = stats
+            active_day_number, achievement_number, avatar_number, spiral_abyss} = stats
         const summary = {
             'anemoculus_number': anemoculus_number,
             'geoculus_number': geoculus_number,
@@ -277,7 +278,7 @@ class bulid {
             'exquisite_chest_number': exquisite_chest_number,
             'common_chest_number': common_chest_number,
             'magic_chest_number': magic_chest_number,
-            'active_days': active_days,
+            'active_day_number': active_day_number,
             'achievement_number': achievement_number,
             'avatar_number': avatar_number,
             'spiral_abyss': spiral_abyss

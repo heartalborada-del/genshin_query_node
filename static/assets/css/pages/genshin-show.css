@@ -1,0 +1,97 @@
+div.modify-info-card.card {
+    border-color: rgb(211, 188, 141);
+    padding: 20px 16px;
+    background: #f8f8f8;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+
+div.modify-card {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 3px;
+    width: 65%;
+}
+
+div.modify-info-card.info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-preferred-size: 20%;
+    flex-basis: 20%;
+}
+
+div.modify-info-card.info>.value {
+    font-size: 18px;
+    font-family: Microsoft YaHei,sans-serif;
+    font-weight: 700;
+    color: #1e1f20;
+    line-height: 18px;
+}
+
+div.modify-info-card.info>.desc {
+    margin-top: 5px;
+    width: 100%;
+    padding: 0 .5px;
+    min-height: 30px;
+    text-align: center;
+    font-size: 12px;
+    font-family: Microsoft YaHei,sans-serif;
+    font-weight: 400;
+    color: #7f858a;
+    line-height: 15px;
+    margin-top: 4px;
+    margin-bottom: 7px;
+    line-height: 18px;
+    min-height: 36px;
+}
+
+div.title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 16px;
+    padding-left: 12px;
+    margin-bottom: 16px;
+    position: relative;
+    font-family: Microsoft YaHei,sans-serif;
+    font-weight: 700;
+    color: #1e1f20;
+    line-height: 24px;
+    margin-bottom: 16px;
+    padding-left: 12px;
+}
+
+div.title>.vertical {
+    position: absolute;
+    width: 4px;
+    height: 16px;
+    border-radius: 1px;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background: rgb(211, 188, 141);
+}

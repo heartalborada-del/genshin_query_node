@@ -72,47 +72,6 @@ footer>a:visited {
     transform: rotate(180deg);
 }
 
-div.modify-info-card.card {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 95%;
-    border-radius: 3px
-}
-
 .item-header {
     margin-bottom: 5px;
-}
-
-div.modify-card {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    margin-top: 5%;
-    border-radius: 3px;
-    width: 65%;
-}
-
-div.modify-info-card.info {
-    width: 50px;
-    height: 50px;
-    float: left;
-    margin: 2px;
-    display: flex;
-    align-items: center
-}
-
-div.modify-info-card.info>.num {
-    font-size: 20px;
-    margin-bottom: 2px;
-    display:in;
-}
-div.modify-info-card.info>.label {
-    font-size:5px;
 }

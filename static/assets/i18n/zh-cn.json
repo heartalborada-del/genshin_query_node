@@ -1,0 +1,18 @@
+{
+    "summary":{
+        "achievement_number": "成就达成数",
+        "active_day_number": "活跃天数",
+        "anemoculus_number": "风神瞳",
+        "avatar_number": "获得角色数",
+        "common_chest_number": "普通宝箱数",
+        "domain_number": "解锁秘境",
+        "electroculus_number": "雷神瞳",
+        "exquisite_chest_number": "精致宝箱数",
+        "geoculus_number": "岩神瞳",
+        "luxurious_chest_number": "华丽宝箱数",
+        "magic_chest_number": "奇馈宝箱数",
+        "precious_chest_number": "珍贵宝箱数",
+        "spiral_abyss": "深境螺旋",
+        "way_point_number": "解锁传送点"
+    }
+}

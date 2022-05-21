@@ -46,12 +46,18 @@ function q_ri(bt) {
                     mdui.alert('', '查询错误,错误原因-' + data.msg);
                 }
             }
-            showPlayer($(bt).parent().find('#su').find('.card'),data)
+            showPlayer($(bt).parent().find('#su').find('#info'),data)
         })
     }
 }
 
 function showPlayer(div,data){
-    console.log(div)
-    console.log(data)
+    $.get("./assets/i18n/zh-cn.json", function (i18n, status) {
+        var a = "";
+        for (key in data.summary){
+            a = a+'<div class="modify-info-card info"><div class="value">'+data.summary[key]+'</div><div class="desc">'+i18n.summary[key]+'</div></div>'
+            console.log(key)
+        }
+        div.html(a)
+    })
 }
