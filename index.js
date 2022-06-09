@@ -12,11 +12,11 @@ const app = express()
 
 const openCN = true
 const openOS = false
+const openWEB = true
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser());
 app.set("trust proxy", true)
-app.use(express.static(path.join(__dirname, 'static')))
 
 app.all('*', (req, res, next) => {
     const { origin, Origin, referer, Referer } = req.headers;
@@ -31,7 +31,9 @@ app.all('*', (req, res, next) => {
         next()
     }
 })
-
+if (openWEB) {
+    app.use(express.static(path.join(__dirname, 'static')))
+}
 if (openCN) {
     app.all('/api/cn/roleInfo', function (req, res) {
         var cookie = ''
